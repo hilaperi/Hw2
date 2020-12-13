@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/background"
+        android:background="@drawable/background"
         android:scaleType="centerCrop" />
 
     <LinearLayout
@@ -25,7 +26,8 @@
             android:layout_margin="4dp"
             android:layout_weight="0"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:paddingTop="500dp">
 
             <TextView
                 android:id="@+id/main_LBL_score_player_A"
@@ -33,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/start_score"
-                android:textColor="@color/yellow"
+                android:textColor="@color/score"
                 android:textSize="50sp" />
 
             <ImageView
@@ -42,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:contentDescription="@string/player"
-                android:src="@drawable/player_boy" />
+                android:src="@drawable/man" />
 
         </LinearLayout>
 
@@ -51,15 +53,16 @@
             android:layout_height="match_parent"
             android:layout_margin="4dp"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="300dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="0"
-                android:text="@string/game_name"
-                android:textColor="@color/dark_green_700"
+                android:text="@string/Play"
+                android:textColor="@color/score"
                 android:textSize="50sp" />
 
             <ProgressBar
@@ -85,7 +88,7 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:contentDescription="@string/card"
-                    android:src="@drawable/player_boy" />
+                    android:src="@drawable/man" />
 
 
                 <ImageView
@@ -95,7 +98,7 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:contentDescription="@string/card"
-                    android:src="@drawable/player_computer" />
+                    android:src="@drawable/oldwoman" />
 
             </LinearLayout>
 
@@ -105,10 +108,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="0"
-                android:background="@drawable/play_button_background"
                 android:padding="10dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/play_button_timer" />
+                android:src="@drawable/play"
+                />
 
         </LinearLayout>
 
@@ -117,15 +120,17 @@
             android:layout_height="match_parent"
             android:layout_margin="4dp"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:paddingTop="500dp">
 
-            <TextView
+
+        <TextView
                 android:id="@+id/main_LBL_score_player_B"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/start_score"
-                android:textColor="@color/yellow"
+                android:textColor="@color/score"
                 android:textSize="50sp" />
 
             <ImageView
@@ -134,7 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:contentDescription="@string/player"
-                android:src="@drawable/player_computer" />
+                android:src="@drawable/oldwoman" />
 
         </LinearLayout>
 
