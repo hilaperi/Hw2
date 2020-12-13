@@ -5,7 +5,7 @@
             <gradient
                 android:startColor="@color/cardview_shadow_start_color"
                 android:centerColor="@color/cardview_shadow_start_color"
-                android:centerY="0.75"
+                android:centerY="0.90"
                 android:endColor="@color/cardview_shadow_start_color"
                 android:angle="270" />
         </shape>
@@ -15,7 +15,7 @@
         <clip>
             <shape>
                 <gradient
-                    android:startColor="@color/yellow"
+                    android:startColor="@color/progressbarcolor"
                     android:centerColor="@color/cardview_shadow_start_color"
                     android:centerY="0.95"
                     android:angle="270" />

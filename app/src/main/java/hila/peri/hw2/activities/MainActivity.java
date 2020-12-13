@@ -3,8 +3,7 @@ package hila.peri.hw2.activities;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import hila.peri.hw2.utils.MyScreenUtils;
-import hila.peri.hw2.services.MySP;
+
 import hila.peri.hw2.R;
 import hila.peri.hw2.objects.Card;
 import hila.peri.hw2.objects.Deck;
@@ -17,7 +16,7 @@ import java.util.TimerTask;
 
 import static hila.peri.hw2.utils.Constants.BOY_CARD;
 import static hila.peri.hw2.utils.Constants.COMPUTER_CARD;
-import static hila.peri.hw2.utils.Constants.COMPUTER_NAME;
+import static hila.peri.hw2.utils.Constants.OLD_WOMAN;
 import static hila.peri.hw2.utils.Constants.GIRL_CARD;
 
 public class MainActivity extends ActivityBase {
@@ -73,9 +72,9 @@ public class MainActivity extends ActivityBase {
                 .setPlayerLongitude(playerLongitude);
 
         playerB = new Player(COMPUTER_CARD,
-                0, COMPUTER_NAME,
+                0, OLD_WOMAN,
                 -0.142368,
-                51.501156);
+                0.034444);
 
         if (playerGander.matches(GIRL_CARD)) {
             playerA.setPlayerImage(GIRL_CARD);
@@ -93,7 +92,7 @@ public class MainActivity extends ActivityBase {
         Card playerCardA = warDeck.getCard();
         Card playerCardB = warDeck.getCard();
         if (playerCardA != null && playerCardB != null) {
-            setNewCardsImage(playerCardA.getImageName(), playerCardB.getImageName());
+           // setNewCardsImage(playerCardA.getImageName(), playerCardB.getImageName());
 
             setScore(playerCardA, playerCardB);
 
@@ -108,11 +107,11 @@ public class MainActivity extends ActivityBase {
     }
 
     private void setNewCardsImage(String imageNameA, String imageNameB) {
-        int playerDrawableA = this.getResources().getIdentifier(imageNameA, "drawable", this.getPackageName());
-        int playerDrawableB = this.getResources().getIdentifier(imageNameB, "drawable", this.getPackageName());
-
-        mainViewController.setPlayerCardImage(getDrawable(playerDrawableA));
-        mainViewController.setComputerCardImage(getDrawable(playerDrawableB));
+//        int playerDrawableA = this.getResources().getIdentifier(imageNameA, "drawable", this.getPackageName());
+//        int playerDrawableB = this.getResources().getIdentifier(imageNameB, "drawable", this.getPackageName());
+//
+//        mainViewController.setPlayerCardImage(getDrawable(playerDrawableA));
+//        mainViewController.setComputerCardImage(getDrawable(playerDrawableB));
     }
 
     private void setScore(Card playerCardA, Card playerCardB) {

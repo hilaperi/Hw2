@@ -52,7 +52,7 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/card"
                 android:paddingTop="100dp"
-                android:src="@drawable/lady" />
+                android:src="@drawable/player_girl" />
 
             <ImageView
                 android:layout_width="100dp"
