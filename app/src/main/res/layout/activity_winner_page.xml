@@ -7,10 +7,11 @@
     tools:context=".activities.MainActivity">
 
     <ImageView
-        android:id="@+id/winner_IMG_background"
+        android:id="@+id/win_IMG_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/background"
+        android:background="@drawable/background"
         android:scaleType="centerCrop" />
 
     <LinearLayout
@@ -20,13 +21,13 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/winner_LBL_game_over"
+            android:id="@+id/win_TXT_won"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="0"
-            android:text="@string/game_over"
-            android:textColor="@color/dark_green_700"
+            android:text="@string/won"
+            android:textColor="@color/score"
             android:textSize="50sp" />
 
         <LinearLayout
@@ -41,28 +42,29 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:contentDescription="@string/winner_medal"
-                android:src="@drawable/win" />
+                android:src="@drawable/confety" />
 
             <ImageView
-                android:id="@+id/winner_IMG_winner"
+                android:id="@+id/win_IMG_won"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/card"
-                android:src="@drawable/player_girl" />
+                android:paddingTop="100dp"
+                android:src="@drawable/lady" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:contentDescription="@string/winner_medal"
-                android:src="@drawable/win" />
+                android:src="@drawable/confety" />
 
         </LinearLayout>
 
         <TextView
-            android:id="@+id/winner_LBL_name"
+            android:id="@+id/win_LBL_wonName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -72,12 +74,12 @@
             android:textSize="50sp" />
 
         <Button
-            android:id="@+id/winner_BTN_new_game"
+            android:id="@+id/win_BTN_Restart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:layout_margin="10dp"
-            android:text="@string/new_game"
+            android:text="@string/restart"
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:background="@drawable/circle_corners_button" />

@@ -7,63 +7,63 @@
     android:paddingBottom="5dp">
 
     <ImageView
-        android:id="@+id/record_IMG_row"
+        android:id="@+id/topTen_IMG_list"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginRight="5dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/win" />
+        />
 
     <TextView
-        android:id="@+id/record_TXT_player_name"
+        android:id="@+id/topTen_TXT_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/record_IMG_row"
+        android:layout_alignTop="@id/topTen_IMG_list"
         android:layout_alignParentRight="true"
-        android:layout_toRightOf="@id/record_IMG_row"
+        android:layout_toRightOf="@id/topTen_IMG_list"
         android:ellipsize="end"
-        android:text="Player Name"
+        android:text="Name"
         android:textIsSelectable="false"
         android:textSize="16sp"
-        android:textColor="@color/white" />
+        android:textColor="@color/black" />
 
     <TextView
-        android:id="@+id/record_TXT_date"
+        android:id="@+id/topTen_TXT_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:maxLines="2"
         android:text="8"
         android:textSize="12sp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:gravity="center_horizontal" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/record_IMG_row"
-        android:layout_below="@id/record_TXT_player_name"
+        android:layout_toRightOf="@id/topTen_IMG_list"
+        android:layout_below="@id/topTen_TXT_name"
         android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/record_TXT_score"
+            android:id="@+id/topTen_TXT_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:maxLines="1"
-            android:text="score: "
+            android:text="Your score: "
             android:textSize="12sp"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/record_TXT_player_score"
+            android:id="@+id/topTen_TXT_scorePlay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/record_TXT_score"
+            android:layout_toRightOf="@id/topTen_TXT_score"
             android:maxLines="1"
             android:text="8"
             android:textSize="12sp"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
     </LinearLayout>
 </RelativeLayout>

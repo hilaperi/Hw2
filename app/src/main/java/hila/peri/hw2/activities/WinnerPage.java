@@ -9,19 +9,10 @@ import android.widget.TextView;
 import hila.peri.hw2.utils.MyScreenUtils;
 import hila.peri.hw2.services.MySP;
 import hila.peri.hw2.R;
-import hila.peri.hw2.objects.Card;
-import hila.peri.hw2.objects.Deck;
 import hila.peri.hw2.objects.Player;
-import hila.peri.hw2.services.MainViewController;
-import hila.peri.hw2.fragments.FragmentList;
-import hila.peri.hw2.fragments.FragmentMap;
-import hila.peri.hw2.interfaces.RecordCallBack;
 import hila.peri.hw2.objects.Record;
 import hila.peri.hw2.objects.TopTenRecords;
-import hila.peri.hw2.services.RecordItemAdapter;
 import hila.peri.hw2.utils.Constants;
-import hila.peri.hw2.utils.MyScreenUtils;
-import hila.peri.hw2.services.MySP;
 import hila.peri.hw2.services.Sound;
 import com.google.gson.Gson;
 
@@ -32,9 +23,9 @@ import static hila.peri.hw2.utils.Constants.TOP_TEN;
 public class WinnerPage extends ActivityBase {
     public static final String PLAYER_A = "PLAYER_A";
     public static final String PLAYER_B = "PLAYER_B";
-    private TextView winner_LBL_name;
-    private ImageView winner_IMG_winner;
-    private Button winner_BTN_new_game;
+    private TextView win_LBL_wonName;
+    private ImageView win_IMG_won;
+    private Button win_BTN_Restart;
     private Sound winSound;
 
     @Override
@@ -50,19 +41,19 @@ public class WinnerPage extends ActivityBase {
     }
 
     private void findViews() {
-        winner_LBL_name = findViewById(R.id.winner_LBL_name);
-        winner_IMG_winner = findViewById(R.id.winner_IMG_winner);
-        winner_BTN_new_game = findViewById(R.id.winner_BTN_new_game);
+        win_LBL_wonName = findViewById(R.id.win_LBL_wonName);
+        win_IMG_won = findViewById(R.id.win_IMG_won);
+        win_BTN_Restart = findViewById(R.id.win_BTN_Restart);
 
         winSound = new Sound();
         winSound.setSound(this, R.raw.win_sound);
 
-        ImageView winner_IMG_background = findViewById(R.id.winner_IMG_background);
-        MyScreenUtils.updateBackground(Constants.BACKGROUND_NAME, this, winner_IMG_background);
+        ImageView win_IMG_background = findViewById(R.id.win_IMG_background);
+        MyScreenUtils.updateBackground(Constants.BACKGROUND_NAME, this, win_IMG_background);
     }
 
     private void initViews() {
-        winner_BTN_new_game.setOnClickListener(new View.OnClickListener() {
+        win_BTN_Restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startNewGame();
@@ -100,8 +91,8 @@ public class WinnerPage extends ActivityBase {
         }
 
         imageId = this.getResources().getIdentifier(playerImage, "drawable", this.getPackageName());
-        winner_IMG_winner.setImageDrawable(getDrawable(imageId));
-        winner_LBL_name.setText(playerName);
+        win_IMG_won.setImageDrawable(getDrawable(imageId));
+        win_LBL_wonName.setText(playerName);
     }
 
     private void saveScore(Player player) {

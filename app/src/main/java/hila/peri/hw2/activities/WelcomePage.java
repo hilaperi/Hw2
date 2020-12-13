@@ -18,20 +18,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import hila.peri.hw2.utils.MyScreenUtils;
-import hila.peri.hw2.services.MySP;
 import hila.peri.hw2.R;
-import hila.peri.hw2.objects.Card;
-import hila.peri.hw2.objects.Deck;
-import hila.peri.hw2.objects.Player;
-import hila.peri.hw2.services.MainViewController;
-import hila.peri.hw2.fragments.FragmentList;
-import hila.peri.hw2.fragments.FragmentMap;
-import hila.peri.hw2.interfaces.RecordCallBack;
-import hila.peri.hw2.objects.Record;
-import hila.peri.hw2.objects.TopTenRecords;
-import hila.peri.hw2.services.RecordItemAdapter;
 import hila.peri.hw2.utils.Constants;
-import hila.peri.hw2.utils.MyScreenUtils;
+
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -39,10 +28,10 @@ import com.google.android.gms.tasks.OnSuccessListener;
 public class WelcomePage extends AppCompatActivity {
     private final int MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION = 1;
     private Location currentLocation;
-    private EditText welcome_INPT_name;
-    private ImageButton welcome_BTN_boy, welcome_BTN_girl;
-    private Button welcome_BTN_records;
-    private ImageView welcome_IMG_background;
+    private EditText HomePage_FLD_name;
+    private ImageButton HomePage_IMG_Left, HomePage_IMG_Right;
+    private Button HomePage_BTN_TopTen;
+    private ImageView HomePage_IMG_background;
     private FusedLocationProviderClient fusedLocationClient;
 
     @Override
@@ -57,31 +46,31 @@ public class WelcomePage extends AppCompatActivity {
     }
 
     private void findViews() {
-        welcome_INPT_name = findViewById(R.id.welcome_INPT_name);
-        welcome_BTN_boy = findViewById(R.id.welcome_BTN_boy);
-        welcome_BTN_girl = findViewById(R.id.welcome_BTN_girl);
-        welcome_BTN_records = findViewById(R.id.welcome_BTN_records);
-        welcome_IMG_background = findViewById(R.id.welcome_IMG_background);
+        HomePage_FLD_name = findViewById(R.id.HomePage_FLD_name);
+        HomePage_IMG_Left = findViewById(R.id.HomePage_IMG_Left);
+        HomePage_IMG_Right = findViewById(R.id.HomePage_IMG_Right);
+        HomePage_BTN_TopTen = findViewById(R.id.HomePage_BTN_TopTen);
+        HomePage_IMG_background = findViewById(R.id.HomePage_IMG_background);
 
-        MyScreenUtils.updateBackground(Constants.BACKGROUND_NAME, this, welcome_IMG_background);
+        MyScreenUtils.updateBackground(Constants.BACKGROUND_NAME, this, HomePage_IMG_background);
     }
 
     private void initViews() {
-        welcome_BTN_boy.setOnClickListener(new View.OnClickListener() {
+        HomePage_IMG_Left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startGame(Constants.BOY_CARD);
             }
         });
 
-        welcome_BTN_girl.setOnClickListener(new View.OnClickListener() {
+        HomePage_IMG_Right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startGame(Constants.GIRL_CARD);
             }
         });
 
-        welcome_BTN_records.setOnClickListener(new View.OnClickListener() {
+        HomePage_BTN_TopTen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showRecords();
@@ -95,7 +84,7 @@ public class WelcomePage extends AppCompatActivity {
     }
 
     private void startGame(String playerGander) {
-        String name = welcome_INPT_name.getText().toString();
+        String name = HomePage_FLD_name.getText().toString();
         if (name.matches("")) {
             Toast.makeText(this, "You did not enter a name", Toast.LENGTH_SHORT).show();
             return;

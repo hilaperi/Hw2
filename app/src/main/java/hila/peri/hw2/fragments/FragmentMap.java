@@ -30,7 +30,7 @@ public class FragmentMap extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_map, container, false);
 
-        mMapView = (MapView) view.findViewById(R.id.record_MAP_view);
+        mMapView = (MapView) view.findViewById(R.id.topTen_MAP_view);
         mMapView.onCreate(savedInstanceState);
 
         mMapView.onResume(); // needed to get the map to display immediately

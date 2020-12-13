@@ -17,7 +17,7 @@ import hila.peri.hw2.services.RecordItemAdapter;
 
 public class FragmentList extends Fragment {
     private final RecordItemAdapter itemAdapter;
-    private ListView recordsListView;
+    private ListView record_LST_TopTen;
     private RecordCallBack recordCallBack;
 
     public FragmentList(RecordItemAdapter itemAdapter, RecordCallBack recordCallBack) {
@@ -37,12 +37,12 @@ public class FragmentList extends Fragment {
     }
 
     private void findViews(View view) {
-        recordsListView = (ListView) view.findViewById(R.id.record_LIV_records);
+        record_LST_TopTen = (ListView) view.findViewById(R.id.record_LST_TopTen);
     }
 
     private void initViews() {
-        recordsListView.setAdapter(itemAdapter);
-        recordsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        record_LST_TopTen.setAdapter(itemAdapter);
+        record_LST_TopTen.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
                 Record record = itemAdapter.getItem(position);
                 if (recordCallBack != null) {

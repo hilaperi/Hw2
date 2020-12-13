@@ -29,17 +29,17 @@ public class RecordItemAdapter extends ArrayAdapter<Record> {
         View rowView = inflater.inflate(R.layout.record_item, null);
 
         TextView postTitleView = (TextView) rowView
-                .findViewById(R.id.record_TXT_player_name);
+                .findViewById(R.id.topTen_TXT_name);
 
         postTitleView.setText(records.get(position).getName());
 
         TextView postScoreView = (TextView) rowView
-                .findViewById(R.id.record_TXT_player_score);
+                .findViewById(R.id.topTen_TXT_scorePlay);
 
         postScoreView.setText(records.get(position).getScore() + "");
 
         TextView postDateView = (TextView) rowView
-                .findViewById(R.id.record_TXT_date);
+                .findViewById(R.id.topTen_TXT_date);
 
         postDateView.setText(records.get(position).getDate() + "");
         return rowView;
