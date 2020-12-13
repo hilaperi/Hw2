@@ -41,7 +41,6 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:contentDescription="@string/winner_medal"
                 android:src="@drawable/confety" />
 
             <ImageView
@@ -58,7 +57,6 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:contentDescription="@string/winner_medal"
                 android:src="@drawable/confety" />
 
         </LinearLayout>

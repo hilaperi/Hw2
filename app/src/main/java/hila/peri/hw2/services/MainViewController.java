@@ -78,7 +78,7 @@ public class MainViewController {
 
     public void playSound() {
         if (!tickingSound.isPlaying()) {
-            tickingSound.setSound(activity, R.raw.ticking_clock_sound);
+            tickingSound.setSound(activity, R.raw.thegame);
             tickingSound.playSound();
         }
     }
