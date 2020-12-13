@@ -27,7 +27,7 @@ public class MainActivity extends ActivityBase {
     public static final String LONGITUDE = "LONGITUDE";
 
     private final int SECOND = 1000;
-    private final int NUMBER_OF_CARDS = 26;
+    private final int NUMBER_OF_CARDS = 14;
     private Player playerA;
     private Player playerB;
     private Deck warDeck;
