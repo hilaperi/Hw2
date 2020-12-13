@@ -11,16 +11,17 @@ import android.widget.ListView;
 import androidx.fragment.app.Fragment;
 
 import hila.peri.hw2.R;
-import hila.peri.hw2.interfaces.RecordCallBack;
+import hila.peri.hw2.activities.RecordCallBack;
+import hila.peri.hw2.activities.RecordsPage;
 import hila.peri.hw2.objects.Record;
 import hila.peri.hw2.services.RecordItemAdapter;
 
-public class FragmentList extends Fragment {
+public class Fragment_List extends Fragment {
     private final RecordItemAdapter itemAdapter;
     private ListView record_LST_TopTen;
     private RecordCallBack recordCallBack;
 
-    public FragmentList(RecordItemAdapter itemAdapter, RecordCallBack recordCallBack) {
+    public Fragment_List(RecordItemAdapter itemAdapter, RecordCallBack recordCallBack) {
         this.itemAdapter = itemAdapter;
         this.recordCallBack = recordCallBack;
     }

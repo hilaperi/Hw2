@@ -1,4 +1,4 @@
-package hila.peri.hw2.interfaces;
+package hila.peri.hw2.activities;
 
 import hila.peri.hw2.objects.Record;
 

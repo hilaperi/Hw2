@@ -1,7 +1,6 @@
 package hila.peri.hw2.activities;
 
 import android.app.Application;
-import hila.peri.hw2.utils.MyScreenUtils;
 
 import hila.peri.hw2.services.MySP;
 

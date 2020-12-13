@@ -5,8 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import hila.peri.hw2.R;
-import hila.peri.hw2.objects.Card;
-import hila.peri.hw2.objects.Deck;
+import hila.peri.hw2.objects.Cards;
 import hila.peri.hw2.objects.Player;
 import hila.peri.hw2.services.MainViewController;
 import com.google.gson.Gson;
@@ -14,10 +13,10 @@ import com.google.gson.Gson;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static hila.peri.hw2.utils.Constants.BOY_CARD;
-import static hila.peri.hw2.utils.Constants.COMPUTER_CARD;
-import static hila.peri.hw2.utils.Constants.OLD_WOMAN;
-import static hila.peri.hw2.utils.Constants.GIRL_CARD;
+import static hila.peri.hw2.services.MyScreenUtils.Constants.BOY_CARD;
+import static hila.peri.hw2.services.MyScreenUtils.Constants.COMPUTER_CARD;
+import static hila.peri.hw2.services.MyScreenUtils.Constants.OLD_WOMAN;
+import static hila.peri.hw2.services.MyScreenUtils.Constants.GIRL_CARD;
 
 public class MainActivity extends ActivityBase {
     public static final String PLAYER_GENDER = "PLAYER_GENDER";
@@ -29,7 +28,7 @@ public class MainActivity extends ActivityBase {
     private final int NUMBER_OF_CARDS = 14;
     private Player playerA;
     private Player playerB;
-    private Deck warDeck;
+    private Cards.Deck warDeck;
     private Timer carousalTimer;
     private MainViewController mainViewController;
 
@@ -51,7 +50,7 @@ public class MainActivity extends ActivityBase {
     }
 
     public void initDeck() {
-        warDeck = new Deck();
+        warDeck = new Cards.Deck();
         for (int i = 1; i <= NUMBER_OF_CARDS; i++) {
             warDeck.addCard("card_" + i, i);
         }
@@ -89,8 +88,8 @@ public class MainActivity extends ActivityBase {
     }
 
     private void playTurn() {
-        Card playerCardA = warDeck.getCard();
-        Card playerCardB = warDeck.getCard();
+        Cards playerCardA = warDeck.getCard();
+        Cards playerCardB = warDeck.getCard();
         if (playerCardA != null && playerCardB != null) {
            // setNewCardsImage(playerCardA.getImageName(), playerCardB.getImageName());
 
@@ -114,7 +113,7 @@ public class MainActivity extends ActivityBase {
 //        mainViewController.setComputerCardImage(getDrawable(playerDrawableB));
     }
 
-    private void setScore(Card playerCardA, Card playerCardB) {
+    private void setScore(Cards playerCardA, Cards playerCardB) {
         if (playerCardA.isStronger(playerCardB)) {
             playerA.addScore();
             mainViewController.setPlayerScore(playerA.getPlayerScore() + "");

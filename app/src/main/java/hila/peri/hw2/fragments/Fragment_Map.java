@@ -18,7 +18,7 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class FragmentMap extends Fragment {
+public class Fragment_Map extends Fragment {
 
     private MapView mMapView;
     private double latitude = 51.501024, longitude = -0.142666;

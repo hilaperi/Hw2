@@ -6,19 +6,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import hila.peri.hw2.utils.MyScreenUtils;
+import hila.peri.hw2.services.MyScreenUtils;
 import hila.peri.hw2.services.MySP;
 import hila.peri.hw2.R;
 import hila.peri.hw2.objects.Player;
 import hila.peri.hw2.objects.Record;
 import hila.peri.hw2.objects.TopTenRecords;
-import hila.peri.hw2.utils.Constants;
 import hila.peri.hw2.services.Sound;
 import com.google.gson.Gson;
 
 import java.text.SimpleDateFormat;
 
-import static hila.peri.hw2.utils.Constants.TOP_TEN;
+import static hila.peri.hw2.services.MyScreenUtils.Constants.TOP_TEN;
 
 public class WinnerPage extends ActivityBase {
     public static final String PLAYER_A = "PLAYER_A";
@@ -46,10 +45,10 @@ public class WinnerPage extends ActivityBase {
         win_BTN_Restart = findViewById(R.id.win_BTN_Restart);
 
         winSound = new Sound();
-        winSound.setSound(this, R.raw.win_sound);
+        winSound.setSound(this, R.raw.party);
 
         ImageView win_IMG_background = findViewById(R.id.win_IMG_background);
-        MyScreenUtils.updateBackground(Constants.BACKGROUND_NAME, this, win_IMG_background);
+        MyScreenUtils.updateBackground(MyScreenUtils.Constants.BACKGROUND_NAME, this, win_IMG_background);
     }
 
     private void initViews() {

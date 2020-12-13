@@ -4,7 +4,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import hila.peri.hw2.utils.MyScreenUtils;
+import hila.peri.hw2.services.MyScreenUtils;
 
 public abstract class ActivityBase extends AppCompatActivity {
     protected boolean isDoubleBackPressToClose = false;

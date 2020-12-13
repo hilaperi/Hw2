@@ -17,9 +17,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import hila.peri.hw2.utils.MyScreenUtils;
+import hila.peri.hw2.services.MyScreenUtils;
 import hila.peri.hw2.R;
-import hila.peri.hw2.utils.Constants;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -52,21 +51,21 @@ public class WelcomePage extends AppCompatActivity {
         HomePage_BTN_TopTen = findViewById(R.id.HomePage_BTN_TopTen);
         HomePage_IMG_background = findViewById(R.id.HomePage_IMG_background);
 
-        MyScreenUtils.updateBackground(Constants.BACKGROUND_NAME, this, HomePage_IMG_background);
+        MyScreenUtils.updateBackground(MyScreenUtils.Constants.BACKGROUND_NAME, this, HomePage_IMG_background);
     }
 
     private void initViews() {
         HomePage_IMG_Left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startGame(Constants.BOY_CARD);
+                startGame(MyScreenUtils.Constants.BOY_CARD);
             }
         });
 
         HomePage_IMG_Right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startGame(Constants.GIRL_CARD);
+                startGame(MyScreenUtils.Constants.GIRL_CARD);
             }
         });
 

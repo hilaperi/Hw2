@@ -3,14 +3,12 @@ package hila.peri.hw2.services;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import hila.peri.hw2.utils.Constants;
-
 public class MySP {
     private static MySP instance;
     private SharedPreferences prefs;
 
     private MySP(Context context) {
-        prefs = context.getSharedPreferences(Constants.MY_SP, Context.MODE_PRIVATE);
+        prefs = context.getSharedPreferences(MyScreenUtils.Constants.MY_SP, Context.MODE_PRIVATE);
     }
 
     public static void init(Context context) {
