@@ -36,10 +36,10 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"></activity>
         <activity
-            android:name=".activities.RecordsPage"
+            android:name=".activities.TopTenPage"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.WelcomePage"
+            android:name=".activities.HomePage"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

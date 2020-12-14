@@ -7,19 +7,18 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import hila.peri.hw2.services.MyScreenUtils;
-import hila.peri.hw2.services.MySP;
 import hila.peri.hw2.R;
-import hila.peri.hw2.objects.Player;
-import hila.peri.hw2.objects.Record;
-import hila.peri.hw2.objects.TopTenRecords;
+import hila.peri.hw2.logic.Player;
+import hila.peri.hw2.logic.Record;
+import hila.peri.hw2.logic.TopTenRecords;
 import hila.peri.hw2.services.Sound;
 import com.google.gson.Gson;
 
 import java.text.SimpleDateFormat;
 
-import static hila.peri.hw2.services.MyScreenUtils.Constants.TOP_TEN;
+import static hila.peri.hw2.services.MyScreenUtils.Const.TOP_TEN;
 
-public class WinnerPage extends ActivityBase {
+public class WinnerPage extends CommonMethids {
     public static final String PLAYER_A = "PLAYER_A";
     public static final String PLAYER_B = "PLAYER_B";
     private TextView win_LBL_wonName;
@@ -48,7 +47,7 @@ public class WinnerPage extends ActivityBase {
         winSound.setSound(this, R.raw.party);
 
         ImageView win_IMG_background = findViewById(R.id.win_IMG_background);
-        MyScreenUtils.updateBackground(MyScreenUtils.Constants.BACKGROUND_NAME, this, win_IMG_background);
+        MyScreenUtils.updateBackground(MyScreenUtils.Const.BACKGROUND_NAME, this, win_IMG_background);
     }
 
     private void initViews() {
@@ -61,7 +60,7 @@ public class WinnerPage extends ActivityBase {
     }
 
     private void startNewGame() {
-        Intent intent = new Intent(this, WelcomePage.class);
+        Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
         finish();
     }
@@ -101,7 +100,7 @@ public class WinnerPage extends ActivityBase {
 
         Gson gson = new Gson();
 
-        String jsonFromMemory = MySP.getInstance().getString(TOP_TEN, "");
+        String jsonFromMemory = App.MySP.getInstance().getString(TOP_TEN, "");
         if (jsonFromMemory.equals("")) {
             topTenRecords = new TopTenRecords();
         } else {
@@ -118,7 +117,7 @@ public class WinnerPage extends ActivityBase {
 
         if (isAdd) {
             String json = gson.toJson(topTenRecords);
-            MySP.getInstance().putString(TOP_TEN, json);
+            App.MySP.getInstance().putString(TOP_TEN, json);
         }
     }
 }

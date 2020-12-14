@@ -38,7 +38,7 @@ public class MainViewController {
         main_BTN_play = activity.findViewById(R.id.main_BTN_play);
 
         ImageView main_IMG_background = activity.findViewById(R.id.main_IMG_background);
-        MyScreenUtils.updateBackground(MyScreenUtils.Constants.BACKGROUND_NAME, activity, main_IMG_background);
+        MyScreenUtils.updateBackground(MyScreenUtils.Const.BACKGROUND_NAME, activity, main_IMG_background);
     }
 
     private void initViews() {

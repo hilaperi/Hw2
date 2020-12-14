@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import hila.peri.hw2.services.MyScreenUtils;
 
-public abstract class ActivityBase extends AppCompatActivity {
+public class CommonMethids extends AppCompatActivity {
     protected boolean isDoubleBackPressToClose = false;
     private static final int TIME_INTERVAL = 2000; // # milliseconds, desired time passed between two back presses.
     private long mBackPressed;

@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import hila.peri.hw2.R;
-import hila.peri.hw2.objects.Record;
+import hila.peri.hw2.logic.Record;
 
 import java.util.ArrayList;
 

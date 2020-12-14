@@ -24,7 +24,7 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 
-public class WelcomePage extends AppCompatActivity {
+public class HomePage extends AppCompatActivity {
     private final int MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION = 1;
     private Location currentLocation;
     private EditText HomePage_FLD_name;
@@ -36,7 +36,7 @@ public class WelcomePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome_page);
+        setContentView(R.layout.activity_home_page);
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
@@ -51,21 +51,21 @@ public class WelcomePage extends AppCompatActivity {
         HomePage_BTN_TopTen = findViewById(R.id.HomePage_BTN_TopTen);
         HomePage_IMG_background = findViewById(R.id.HomePage_IMG_background);
 
-        MyScreenUtils.updateBackground(MyScreenUtils.Constants.BACKGROUND_NAME, this, HomePage_IMG_background);
+        MyScreenUtils.updateBackground(MyScreenUtils.Const.BACKGROUND_NAME, this, HomePage_IMG_background);
     }
 
     private void initViews() {
         HomePage_IMG_Left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startGame(MyScreenUtils.Constants.BOY_CARD);
+                startGame(MyScreenUtils.Const.BOY_CARD);
             }
         });
 
         HomePage_IMG_Right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startGame(MyScreenUtils.Constants.GIRL_CARD);
+                startGame(MyScreenUtils.Const.GIRL_CARD);
             }
         });
 
@@ -78,7 +78,7 @@ public class WelcomePage extends AppCompatActivity {
     }
 
     private void showRecords() {
-        Intent intent = new Intent(this, RecordsPage.class);
+        Intent intent = new Intent(this, TopTenPage.class);
         startActivity(intent);
     }
 
@@ -121,7 +121,7 @@ public class WelcomePage extends AppCompatActivity {
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                ActivityCompat.requestPermissions(WelcomePage.this,
+                                ActivityCompat.requestPermissions(HomePage.this,
                                         new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
                                         MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION);
                             }

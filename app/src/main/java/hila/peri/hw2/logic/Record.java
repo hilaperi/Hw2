@@ -1,4 +1,4 @@
-package hila.peri.hw2.objects;
+package hila.peri.hw2.logic;
 
 public class Record implements Comparable {
 

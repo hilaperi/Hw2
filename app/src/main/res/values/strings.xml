@@ -1,5 +1,10 @@
 <resources>
-    <string name="app_name">Funny Card Game</string>
+
+    <string name="homePageWAY">"Who are you?\n Boy Or Girl"</string>
+    <string name="Your_score">Your score:</string>
+    <string name="TopTen_Table">The top ten list:</string>
+    <string name="location">The location is:</string>
+    <string name="app_name">Fight against tha Savtosh</string>
     <string name="start_score">0</string>
     <string name="Play">Play!</string>
     <string name="TopTen">Top Ten</string>
@@ -10,5 +15,8 @@
     <string name="winner_name">Text text</string>
     <string name="restart">RESTART</string>
     <string name="title_activity_maps">Map</string>
+    <string name="Name">Name</string>
+
+
 
 </resources>

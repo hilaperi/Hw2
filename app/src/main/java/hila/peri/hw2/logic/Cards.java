@@ -1,4 +1,4 @@
-package hila.peri.hw2.objects;
+package hila.peri.hw2.logic;
 
 import java.util.ArrayList;
 import java.util.Collections;

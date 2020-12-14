@@ -5,20 +5,20 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import hila.peri.hw2.R;
-import hila.peri.hw2.objects.Cards;
-import hila.peri.hw2.objects.Player;
+import hila.peri.hw2.logic.Cards;
+import hila.peri.hw2.logic.Player;
 import hila.peri.hw2.services.MainViewController;
 import com.google.gson.Gson;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static hila.peri.hw2.services.MyScreenUtils.Constants.BOY_CARD;
-import static hila.peri.hw2.services.MyScreenUtils.Constants.COMPUTER_CARD;
-import static hila.peri.hw2.services.MyScreenUtils.Constants.OLD_WOMAN;
-import static hila.peri.hw2.services.MyScreenUtils.Constants.GIRL_CARD;
+import static hila.peri.hw2.services.MyScreenUtils.Const.BOY_CARD;
+import static hila.peri.hw2.services.MyScreenUtils.Const.COMPUTER_CARD;
+import static hila.peri.hw2.services.MyScreenUtils.Const.OLD_WOMAN;
+import static hila.peri.hw2.services.MyScreenUtils.Const.GIRL_CARD;
 
-public class MainActivity extends ActivityBase {
+public class MainActivity extends CommonMethids {
     public static final String PLAYER_GENDER = "PLAYER_GENDER";
     public static final String PLAYER_NAME = "PLAYER_NAME";
     public static final String LATITUDE = "LATITUDE";
@@ -52,7 +52,7 @@ public class MainActivity extends ActivityBase {
     public void initDeck() {
         warDeck = new Cards.Deck();
         for (int i = 1; i <= NUMBER_OF_CARDS; i++) {
-            warDeck.addCard("card_" + i, i);
+           warDeck.addCard("card_" + i, i);
         }
         warDeck.shuffleCards();
     }
@@ -91,8 +91,7 @@ public class MainActivity extends ActivityBase {
         Cards playerCardA = warDeck.getCard();
         Cards playerCardB = warDeck.getCard();
         if (playerCardA != null && playerCardB != null) {
-           // setNewCardsImage(playerCardA.getImageName(), playerCardB.getImageName());
-
+           setNewCardsImage(playerCardA.getImageName(), playerCardB.getImageName());
             setScore(playerCardA, playerCardB);
 
             setProgress();
@@ -106,11 +105,11 @@ public class MainActivity extends ActivityBase {
     }
 
     private void setNewCardsImage(String imageNameA, String imageNameB) {
-//        int playerDrawableA = this.getResources().getIdentifier(imageNameA, "drawable", this.getPackageName());
-//        int playerDrawableB = this.getResources().getIdentifier(imageNameB, "drawable", this.getPackageName());
-//
-//        mainViewController.setPlayerCardImage(getDrawable(playerDrawableA));
-//        mainViewController.setComputerCardImage(getDrawable(playerDrawableB));
+        int playerDrawableA = this.getResources().getIdentifier(imageNameA, "drawable", this.getPackageName());
+        int playerDrawableB = this.getResources().getIdentifier(imageNameB, "drawable", this.getPackageName());
+
+        mainViewController.setPlayerCardImage(getDrawable(playerDrawableA));
+        mainViewController.setComputerCardImage(getDrawable(playerDrawableB));
     }
 
     private void setScore(Cards playerCardA, Cards playerCardB) {
@@ -180,5 +179,7 @@ public class MainActivity extends ActivityBase {
         }
         super.onStop();
     }
+
+
 
 }

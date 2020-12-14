@@ -1,7 +1,7 @@
 package hila.peri.hw2.activities;
 
-import hila.peri.hw2.objects.Record;
+import hila.peri.hw2.logic.Record;
 
-public interface RecordCallBack {
+public interface CallBackTable {
     void displayLocation(Record record);
 }
