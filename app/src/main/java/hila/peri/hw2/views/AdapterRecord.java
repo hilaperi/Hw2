@@ -11,18 +11,12 @@ import hila.peri.hw2.logic.Record;
 import java.util.ArrayList;
 
 public class AdapterRecord extends ArrayAdapter<Record> {
-    private final Activity myContext;
+    private final Activity MY;
     private final ArrayList<Record> records;
 
-    public AdapterRecord(Context context, int textViewResourceId,
-                         ArrayList<Record> records) {
-        super(context, textViewResourceId, records);
-        myContext = (Activity) context;
-        this.records = records;
-    }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = myContext.getLayoutInflater();
+        LayoutInflater inflater = MY.getLayoutInflater();
         View rowView = inflater.inflate(R.layout.top_ten_list, null);
 
         TextView postTitleView = (TextView) rowView
@@ -41,4 +35,11 @@ public class AdapterRecord extends ArrayAdapter<Record> {
         postDateView.setText(records.get(position).getDate() + "");
         return rowView;
     }
+    public AdapterRecord(Context context, int textViewResourceId,
+                         ArrayList<Record> records) {
+        super(context, textViewResourceId, records);
+        MY = (Activity) context;
+        this.records = records;
+    }
+
 }
