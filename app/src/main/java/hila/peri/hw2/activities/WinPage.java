@@ -6,25 +6,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import hila.peri.hw2.services.MyScreenUtils;
+import hila.peri.hw2.views.MyScreenUtils;
 import hila.peri.hw2.R;
 import hila.peri.hw2.logic.Player;
 import hila.peri.hw2.logic.Record;
 import hila.peri.hw2.logic.TopTenRecords;
-import hila.peri.hw2.services.Sound;
+import hila.peri.hw2.views.Sound;
 import com.google.gson.Gson;
 
 import java.text.SimpleDateFormat;
 
-import static hila.peri.hw2.services.MyScreenUtils.Const.TOP_TEN;
+import static hila.peri.hw2.views.MyScreenUtils.Const.TOP_TEN;
 
-public class WinnerPage extends CommonMethids {
-    public static final String PLAYER_A = "PLAYER_A";
-    public static final String PLAYER_B = "PLAYER_B";
+public class WinPage extends ActivityBase {
+
     private TextView win_LBL_wonName;
     private ImageView win_IMG_won;
     private Button win_BTN_Restart;
     private Sound winSound;
+    public static final String PLAYER_A = "PLAYER_A";
+    public static final String PLAYER_B = "PLAYER_B";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class WinnerPage extends CommonMethids {
         findViews();
         initViews();
 
-        displayWinner();
+        winDisplay();
         winSound.playSound();
     }
 
@@ -54,18 +55,12 @@ public class WinnerPage extends CommonMethids {
         win_BTN_Restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startNewGame();
+                restartt();
             }
         });
     }
 
-    private void startNewGame() {
-        Intent intent = new Intent(this, HomePage.class);
-        startActivity(intent);
-        finish();
-    }
-
-    private void displayWinner() {
+    private void winDisplay() {
         int imageId;
         String playerImage;
         String playerName;
@@ -79,12 +74,12 @@ public class WinnerPage extends CommonMethids {
         Player playerB = gson.fromJson(playerJsonB, Player.class);
 
         if (playerA.getPlayerScore() > playerB.getPlayerScore()) {
-            playerImage = playerA.getPlayerImage();
-            playerName = playerA.getPlayerName();
+            playerImage = playerA.getImagePlayer();
+            playerName = playerA.getNamePlayer();
             saveScore(playerA);
         } else {
-            playerImage = playerB.getPlayerImage();
-            playerName = playerB.getPlayerName();
+            playerImage = playerB.getImagePlayer();
+            playerName = playerB.getNamePlayer();
             saveScore(playerB);
         }
 
@@ -100,14 +95,14 @@ public class WinnerPage extends CommonMethids {
 
         Gson gson = new Gson();
 
-        String jsonFromMemory = App.MySP.getInstance().getString(TOP_TEN, "");
+        String jsonFromMemory = SharedPreferencesSingleton.getInstance().getString(TOP_TEN, "");
         if (jsonFromMemory.equals("")) {
             topTenRecords = new TopTenRecords();
         } else {
             topTenRecords = gson.fromJson(jsonFromMemory, TopTenRecords.class);
         }
 
-        Record record = new Record(player.getPlayerName(),
+        Record record = new Record(player.getNamePlayer(),
                 player.getPlayerScore(),
                 date,
                 player.getPlayerLatitude(),
@@ -117,7 +112,14 @@ public class WinnerPage extends CommonMethids {
 
         if (isAdd) {
             String json = gson.toJson(topTenRecords);
-            App.MySP.getInstance().putString(TOP_TEN, json);
+            SharedPreferencesSingleton.getInstance().setString(TOP_TEN, json);
         }
     }
+
+    private void restartt() {
+        Intent intent = new Intent(this, HomePage.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

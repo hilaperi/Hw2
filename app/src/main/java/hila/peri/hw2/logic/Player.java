@@ -1,29 +1,27 @@
 package hila.peri.hw2.logic;
 
 public class Player {
-    private String playerImage;
-    private String playerName;
+
     private int playerScore;
     private double playerLongitude;
     private double playerLatitude;
-
-    public Player() {
-    }
-
-    public Player(String playerImage, int playerScore, String playerName, double playerLongitude, double playerLatitude) {
-        this.playerImage = playerImage;
+    private String imagePlayer;
+    private String namePlayer;
+    public Player(){}
+    public Player(String imagePlayer, int playerScore, String namePlayer, double playerLongitude, double playerLatitude) {
+        this.imagePlayer = imagePlayer;
         this.playerScore = playerScore;
-        this.playerName = playerName;
+        this.namePlayer = namePlayer;
         this.playerLongitude = playerLongitude;
         this.playerLatitude = playerLatitude;
     }
 
-    public String getPlayerImage() {
-        return playerImage;
+    public String getImagePlayer() {
+        return imagePlayer;
     }
 
-    public void setPlayerImage(String playerImage) {
-        this.playerImage = playerImage;
+    public void setImagePlayer(String imagePlayer) {
+        this.imagePlayer = imagePlayer;
     }
 
     public int getPlayerScore() {
@@ -36,12 +34,12 @@ public class Player {
 
     }
 
-    public String getPlayerName() {
-        return playerName;
+    public String getNamePlayer() {
+        return namePlayer;
     }
 
-    public Player setPlayerName(String playerName) {
-        this.playerName = playerName;
+    public Player setNamePlayer(String namePlayer) {
+        this.namePlayer = namePlayer;
         return this;
     }
 

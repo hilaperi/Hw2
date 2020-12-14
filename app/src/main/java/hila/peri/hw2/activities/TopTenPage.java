@@ -1,32 +1,28 @@
 package hila.peri.hw2.activities;
-
 import android.os.Bundle;
 import android.widget.ImageView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import hila.peri.hw2.R;
 import hila.peri.hw2.fragments.Fragment_List;
 import hila.peri.hw2.fragments.Fragment_Map;
 import hila.peri.hw2.logic.Record;
 import hila.peri.hw2.logic.TopTenRecords;
-import hila.peri.hw2.services.RecordItemAdapter;
-import hila.peri.hw2.services.MyScreenUtils;
-import hila.peri.hw2.services.Sound;
-
+import hila.peri.hw2.views.AdapterRecord;
+import hila.peri.hw2.views.MyScreenUtils;
+import hila.peri.hw2.views.Sound;
 import com.google.gson.Gson;
 
-import static hila.peri.hw2.services.MyScreenUtils.Const.TOP_TEN;
+import static hila.peri.hw2.views.MyScreenUtils.Const.TOP_TEN;
 
 
 public class TopTenPage extends AppCompatActivity {
     private Fragment_Map fragmentMap;
-    private TopTenRecords topTenRecords;
+    private TopTenRecords top_ten_RotateLoading;
     private Sound topTenSound;
 
 
     private CallBackTable recordCallBack = new CallBackTable() {
-        public void displayLocation(Record record) {
+        public void showLocation(Record record) {
             fragmentMap.showPlayerLocation(record);
         }
     };
@@ -35,13 +31,11 @@ public class TopTenPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_records_page);
-
         getTopTen();
-
         findViews();
 
-        RecordItemAdapter itemAdapter = new RecordItemAdapter(this,
-                R.layout.top_ten_list, topTenRecords.getRecords());
+        AdapterRecord itemAdapter = new AdapterRecord(this,
+                R.layout.top_ten_list, top_ten_RotateLoading.getRecords());
 
         Fragment_List fragmentList = new Fragment_List(itemAdapter, recordCallBack);
         getSupportFragmentManager().beginTransaction().add(R.id.record_LAY_list, fragmentList).commit();
@@ -61,12 +55,12 @@ public class TopTenPage extends AppCompatActivity {
     }
 
     private void getTopTen() {
-        topTenRecords = new TopTenRecords();
+        top_ten_RotateLoading = new TopTenRecords();
         Gson gson = new Gson();
 
-        String jsonFromMemory = App.MySP.getInstance().getString(TOP_TEN, "");
+        String jsonFromMemory = SharedPreferencesSingleton.getInstance().getString(TOP_TEN, "");
         if (!jsonFromMemory.equals("")) {
-            topTenRecords = gson.fromJson(jsonFromMemory, TopTenRecords.class);
+            top_ten_RotateLoading = gson.fromJson(jsonFromMemory, TopTenRecords.class);
         }
     }
 

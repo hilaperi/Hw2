@@ -1,5 +1,4 @@
-package hila.peri.hw2.services;
-
+package hila.peri.hw2.views;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,18 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
 import hila.peri.hw2.R;
 import hila.peri.hw2.logic.Record;
-
 import java.util.ArrayList;
 
-public class RecordItemAdapter extends ArrayAdapter<Record> {
+public class AdapterRecord extends ArrayAdapter<Record> {
     private final Activity myContext;
     private final ArrayList<Record> records;
 
-    public RecordItemAdapter(Context context, int textViewResourceId,
-                             ArrayList<Record> records) {
+    public AdapterRecord(Context context, int textViewResourceId,
+                         ArrayList<Record> records) {
         super(context, textViewResourceId, records);
         myContext = (Activity) context;
         this.records = records;

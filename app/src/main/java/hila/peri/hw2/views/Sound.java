@@ -1,4 +1,4 @@
-package hila.peri.hw2.services;
+package hila.peri.hw2.views;
 
 import android.content.Context;
 import android.media.MediaPlayer;

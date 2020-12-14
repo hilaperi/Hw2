@@ -1,24 +1,22 @@
-package hila.peri.hw2.services;
-
+package hila.peri.hw2.views;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import hila.peri.hw2.R;
 import hila.peri.hw2.activities.MainActivity;
 
 public class MainViewController {
 
     private final MainActivity activity;
+    private Sound clockSound;
+    private ProgressBar main_PGR_progressBar;
+    private ImageButton main_BTN_play;
     private TextView main_LBL_scoreLeft, main_LBL_scoreRight;
     private ImageView main_IMG_backPlayerLeft, main_IMG_backPlayerRight;
     private ImageView main_IMG_playerLeft;
-    private Sound tickingSound;
-    private ProgressBar main_PGR_progressBar;
-    private ImageButton main_BTN_play;
 
     public MainViewController(MainActivity activity) {
         this.activity = activity;
@@ -33,7 +31,7 @@ public class MainViewController {
         main_IMG_backPlayerLeft = activity.findViewById(R.id.main_IMG_backPlayerLeft);
         main_IMG_backPlayerRight = activity.findViewById(R.id.main_IMG_backPlayerRight);
         main_IMG_playerLeft = activity.findViewById(R.id.main_IMG_playerLeft);
-        tickingSound = new Sound();
+        clockSound = new Sound();
         main_PGR_progressBar = activity.findViewById(R.id.main_PGR_progressBar);
         main_BTN_play = activity.findViewById(R.id.main_BTN_play);
 
@@ -77,13 +75,13 @@ public class MainViewController {
     }
 
     public void playSound() {
-        if (!tickingSound.isPlaying()) {
-            tickingSound.setSound(activity, R.raw.thegame);
-            tickingSound.playSound();
+        if (!clockSound.isPlaying()) {
+            clockSound.setSound(activity, R.raw.thegame);
+            clockSound.playSound();
         }
     }
 
     public void stopSound() {
-        tickingSound.stopSound();
+        clockSound.stopSound();
     }
 }

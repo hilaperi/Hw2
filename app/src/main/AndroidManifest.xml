@@ -34,7 +34,7 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps"/>
         <activity
             android:name=".activities.TopTenPage"
             android:screenOrientation="portrait" />
@@ -47,7 +47,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.WinnerPage" />
+        <activity android:name=".activities.WinPage" />
         <activity android:name=".activities.MainActivity" />
     </application>
 

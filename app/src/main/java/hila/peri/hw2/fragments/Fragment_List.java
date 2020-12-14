@@ -13,14 +13,14 @@ import androidx.fragment.app.Fragment;
 import hila.peri.hw2.R;
 import hila.peri.hw2.activities.CallBackTable;
 import hila.peri.hw2.logic.Record;
-import hila.peri.hw2.services.RecordItemAdapter;
+import hila.peri.hw2.views.AdapterRecord;
 
 public class Fragment_List extends Fragment {
-    private final RecordItemAdapter itemAdapter;
+    private final AdapterRecord itemAdapter;
     private ListView record_LST_TopTen;
     private CallBackTable recordCallBack;
 
-    public Fragment_List(RecordItemAdapter itemAdapter, CallBackTable recordCallBack) {
+    public Fragment_List(AdapterRecord itemAdapter, CallBackTable recordCallBack) {
         this.itemAdapter = itemAdapter;
         this.recordCallBack = recordCallBack;
     }
@@ -46,7 +46,7 @@ public class Fragment_List extends Fragment {
             public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
                 Record record = itemAdapter.getItem(position);
                 if (recordCallBack != null) {
-                    recordCallBack.displayLocation(record);
+                    recordCallBack.showLocation(record);
                 }
             }
         });

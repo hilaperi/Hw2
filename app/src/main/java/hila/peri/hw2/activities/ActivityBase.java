@@ -1,12 +1,9 @@
 package hila.peri.hw2.activities;
-
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
+import hila.peri.hw2.views.MyScreenUtils;
 
-import hila.peri.hw2.services.MyScreenUtils;
-
-public class CommonMethids extends AppCompatActivity {
+public class ActivityBase extends AppCompatActivity {
     protected boolean isDoubleBackPressToClose = false;
     private static final int TIME_INTERVAL = 2000; // # milliseconds, desired time passed between two back presses.
     private long mBackPressed;
@@ -26,7 +23,7 @@ public class CommonMethids extends AppCompatActivity {
                 super.onBackPressed();
                 return;
             } else {
-                Toast.makeText(this, "Tap back button again to exit", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Tap back again to close the app", Toast.LENGTH_SHORT).show();
             }
 
             mBackPressed = System.currentTimeMillis();

@@ -7,8 +7,6 @@ public class Cards {
     private String imageName;
     private int strength;
 
-    public Cards() {
-    }
 
     public Cards(String imageName, int strength) {
         this.imageName = imageName;
@@ -19,17 +17,11 @@ public class Cards {
         return imageName;
     }
 
-    public void setImageName(String imageName) {
-        this.imageName = imageName;
-    }
 
     public int getStrength() {
         return strength;
     }
 
-    public void setStrength(int strength) {
-        this.strength = strength;
-    }
 
     public boolean isStronger(Cards card) {
         return this.strength > card.getStrength();
@@ -46,9 +38,6 @@ public class Cards {
            return cards;
        }
 
-       public void setCards(ArrayList<Cards> cards) {
-           this.cards = cards;
-       }
 
        public void shuffleCards() {
            Collections.shuffle(cards);

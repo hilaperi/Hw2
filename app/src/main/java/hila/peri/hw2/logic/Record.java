@@ -2,13 +2,10 @@ package hila.peri.hw2.logic;
 
 public class Record implements Comparable {
 
-    private String name;
-    private String date;
     private int score;
     private double lon, lat;
+    private String name,date;
 
-    public Record() {
-    }
 
     public Record(String name, int score, String date, double lat, double lon) {
         this.name = name;
@@ -31,19 +28,11 @@ public class Record implements Comparable {
         return date;
     }
 
-    public Record setDate(String date) {
-        this.date = date;
-        return this;
-    }
 
     public int getScore() {
         return score;
     }
-
-    public Record setScore(int score) {
-        this.score = score;
-        return this;
-    }
+    
 
     public double getLat() {
         return lat;
