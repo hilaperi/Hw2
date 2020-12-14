@@ -42,7 +42,7 @@ public class RecordsPage extends AppCompatActivity {
         findViews();
 
         RecordItemAdapter itemAdapter = new RecordItemAdapter(this,
-                R.layout.record_item, topTenRecords.getRecords());
+                R.layout.top_ten_list, topTenRecords.getRecords());
 
         Fragment_List fragmentList = new Fragment_List(itemAdapter, recordCallBack);
         getSupportFragmentManager().beginTransaction().add(R.id.record_LAY_list, fragmentList).commit();

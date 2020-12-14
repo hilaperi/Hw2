@@ -26,7 +26,7 @@ public class RecordItemAdapter extends ArrayAdapter<Record> {
 
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = myContext.getLayoutInflater();
-        View rowView = inflater.inflate(R.layout.record_item, null);
+        View rowView = inflater.inflate(R.layout.top_ten_list, null);
 
         TextView postTitleView = (TextView) rowView
                 .findViewById(R.id.topTen_TXT_name);
